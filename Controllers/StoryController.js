@@ -11,4 +11,14 @@ async function createStory(req, res) {
     }
 }
 
-module.exports.createStory = createStory
+async function getAllStory(req, res) {
+    try {
+        const story = await storyModels.find();
+        res.status(200).json({ status: "success", data: story })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ status: "Failed", message: 'Something went wrong' })
+    }
+}
+
+module.exports = {createStory, getAllStory}
