@@ -25,17 +25,5 @@ let authentication = async function (req, res, next) {
       return res.status(500).send(error.message);
     }
   }
-function authorize(req, res, next) {
-    try {
-        // Check if user is authenticated
-        if (!req.user) {
-            throw new Error();
-        }
 
-        // Proceed to next middleware
-        next();
-    } catch (error) {
-        return res.status(403).json({ status: "Failed", msg: "Unauthorized access" });
-    }
-}
-module.exports = {authentication, authorize};
+module.exports = {authentication};
