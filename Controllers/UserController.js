@@ -89,7 +89,7 @@ async function bookmark(req, res) {
         res.status(500).json({ message: "Internal server error." });
     }
 }
-
+//======================================================get all users==========================================//
 async function getAllusers(req, res) {
     try {
         
